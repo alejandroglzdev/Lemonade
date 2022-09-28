@@ -78,8 +78,7 @@ class MainActivity : AppCompatActivity() {
         }
         lemonImage!!.setOnLongClickListener {
             // TODO: replace 'false' with a call to the function that shows the squeeze count
-            //showSnackbar()
-            false
+            showSnackbar()
         }
     }
 
@@ -124,14 +123,14 @@ class MainActivity : AppCompatActivity() {
         lemonImage?.setOnClickListener() {
             when (lemonadeState) {
                 SELECT -> {
-                    lemonadeState = "SQUEEZE"
+                    lemonadeState = SQUEEZE
                     lemonSize = lemonTree.pick()
                     squeezeCount = 0
                 }
 
                 SQUEEZE -> {
                     if (lemonSize == squeezeCount) {
-                        lemonadeState = "DRINK"
+                        lemonadeState = DRINK
 
                     } else {
                         squeezeCount++
@@ -139,11 +138,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 DRINK -> {
-                    lemonadeState = "RESTART"
+                    lemonadeState = RESTART
                 }
 
                 RESTART -> {
-                    lemonadeState = "SELECT"
+                    lemonadeState = SELECT
                 }
 
 
